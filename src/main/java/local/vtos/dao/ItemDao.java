@@ -22,4 +22,9 @@ public class ItemDao {
     public Item showItem(int id){
         return itemDaoList.stream().filter(item -> item.getId()==id).findAny().orElse(null);
     }
+
+    public void save(Item item){
+        item.setId(10);
+        itemDaoList.add(item);
+    }
 }

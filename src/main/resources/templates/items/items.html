@@ -8,7 +8,7 @@
 <body>
 <h1>Items</h1>
 <div th:each="item:${items}">
-    <a th:href="@{/item/{id}(id=${item.getId()})}" th:text="${item.getName()}">user</a>
+    <a th:href="@{/items/{id}(id=${item.getId()})}" th:text="${item.getName()}">user</a>
 
 </div>
 </body>
