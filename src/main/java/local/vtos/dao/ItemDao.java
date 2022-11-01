@@ -27,4 +27,13 @@ public class ItemDao {
         item.setId(10);
         itemDaoList.add(item);
     }
+
+    public void update(int id, Item updateItem){
+        Item itemToBeUpdated=showItem(id);
+        itemToBeUpdated.setName(updateItem.getName());
+    }
+
+    public void delete(int id){
+        itemDaoList.removeIf(p->p.getId()==id);
+    }
 }

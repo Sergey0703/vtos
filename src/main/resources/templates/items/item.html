@@ -9,5 +9,11 @@
 <h1>Item</h1>
 <p th:text="${item.getId()}">VALUE</p>
 <p th:text="${item.getName()}">VALUE</p>
+
+<a th:href="@{{id}/edit(id=${item.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/items/{id}(id=${item.getId()})}">
+<input type="submit" value="Delete">
+</form>
 </body>
 </html>
