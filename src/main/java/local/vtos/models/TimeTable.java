@@ -2,9 +2,9 @@ package local.vtos.models;
 
 //import lombok.Data;
 
-import lombok.Data;
+//port lombok.Data;
 
-@Data
+//Dta
 public class TimeTable {
     private int lesson_id;
     private int item_id;

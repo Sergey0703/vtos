@@ -41,7 +41,7 @@ public class TimeTableDao {
         List <TimeTable> timeTableDaoList=new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            String SQL="SELECT * FROM timetable JOIN items ON timetable.item_id=items.id ";
+            String SQL="SELECT * FROM timetable JOIN items ON timetable.item_id=items.id WHERE timetable.lesson_id=1";
 
             ResultSet resultSet=statement.executeQuery(SQL);
             while (resultSet.next()){
@@ -87,7 +87,7 @@ public class TimeTableDao {
         try {
             PreparedStatement preparedStatement=
                     connection.prepareStatement("INSERT INTO timeTable(item_id) VALUES(?)");
-            preparedStatement.setInt(1, timeTable.getItem_id());
+            preparedStatement.setInt(1, timeTable.getItemId());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {

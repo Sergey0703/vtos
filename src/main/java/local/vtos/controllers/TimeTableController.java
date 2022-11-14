@@ -1,5 +1,5 @@
 package local.vtos.controllers;
-
+import local.vtos.models.Item;
 import local.vtos.dao.TimeTableDao;
 import local.vtos.dao.ItemDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,10 @@ public class TimeTableController {
     }
 
     @GetMapping()
-    public String allItems(Model model){
-
+    public String allItems(Model model, @ModelAttribute("item") Item item){
+        model.addAttribute("item",itemDao.showItem(2));
         model.addAttribute("timeTable",timeTableDao.index());
+        model.addAttribute("items",itemDao.index());
         System.out.println("index");
         return "index";
         //return null;

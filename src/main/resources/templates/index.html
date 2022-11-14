@@ -22,11 +22,13 @@
 
        </select>
     </div>
-    <div th:each="lesson:${timeTable}" class="item">
-        <a th:href="@{/}" th:text="${lesson.getItemId()}">user</a>
+    <select >
 
-    </div>
-    <div class="class">3 Personal Eff</div>
+        <option th:each="item:${items}" th:value=${item.getId()} th:text="${item.getName()}" th:selected="${item.getId()==2}">VALUE</option>
+    </select>
+
+
+    <div class="class">3 <span th:text="${item.getName()}">VALUE</span></div>
     <div class="class">4 Personal Eff</div>
     <div class="class">5 Common</div>
     <div class="class">6 Common</div>
