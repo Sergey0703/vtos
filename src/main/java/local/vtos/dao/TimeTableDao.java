@@ -41,14 +41,15 @@ public class TimeTableDao {
         List <TimeTable> timeTableDaoList=new ArrayList<>();
         try {
             Statement statement = connection.createStatement();
-            String SQL="SELECT * FROM timetable JOIN items ON timetable.item_id=items.id WHERE timetable.lesson_id=1";
+           // String SQL="SELECT * FROM timetable JOIN items ON timetable.item_id=items.id WHERE timetable.lesson_id=1";
+            String SQL="SELECT * FROM items LEFT JOIN timetable ON items.id=timetable.item_id WHERE timetable.lesson_id=1";
 
             ResultSet resultSet=statement.executeQuery(SQL);
             while (resultSet.next()){
               TimeTable timeTable =new TimeTable();
               timeTable.setLessonId((resultSet.getInt("lesson_id")));
               timeTable.setItemId(resultSet.getInt("item_id"));
-              //timeTable.setItemName(resultSet.getInt("item_id"));
+            //  timeTable.setItemName(resultSet.getInt("item_id"));
               timeTableDaoList.add(timeTable);
             }
 
